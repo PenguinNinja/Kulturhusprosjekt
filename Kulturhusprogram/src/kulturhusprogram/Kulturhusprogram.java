@@ -7,7 +7,7 @@ package kulturhusprogram;
 
 /**
  *
- * @author Magne
+ * @author Magne?
  */
 public class Kulturhusprogram {
 
