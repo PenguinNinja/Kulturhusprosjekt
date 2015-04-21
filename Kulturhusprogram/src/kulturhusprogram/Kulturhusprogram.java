@@ -1,9 +1,20 @@
 package kulturhusprogram;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 public class Kulturhusprogram {
 
     public static void main(String[] args) {
-        Adminwindow adminvindu = new Adminwindow();
+        Mainwindow mainwindow = new Mainwindow();
+        
+        
+        mainwindow.addWindowListener(
+            new WindowAdapter() {
+                public void windowClosing( WindowEvent e )
+                {
+                    //mainwindow.skrivTilFil();
+                    System.exit( 0 );
+                }
+            } );
     }
     
 }

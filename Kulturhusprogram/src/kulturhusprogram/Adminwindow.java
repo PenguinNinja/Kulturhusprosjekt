@@ -81,7 +81,7 @@ public class Adminwindow extends JFrame{
         pane.add(adminEvent, c);
         
         setSize(1000,500);
-        setVisible(true);
+        setVisible(false);
     }
     
     public void setVisible(){
