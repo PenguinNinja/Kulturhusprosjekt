@@ -9,6 +9,7 @@ public class Kulturhusprogram {
         
         mainwindow.addWindowListener(
             new WindowAdapter() {
+                @Override
                 public void windowClosing( WindowEvent e )
                 {
                     //mainwindow.skrivTilFil();
