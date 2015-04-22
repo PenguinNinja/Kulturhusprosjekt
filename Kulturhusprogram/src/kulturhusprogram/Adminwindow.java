@@ -83,11 +83,4 @@ public class Adminwindow extends JFrame{
         setSize(1000,500);
         setVisible(false);
     }
-    
-    public void setVisible(){
-        setVisible(true);
-    }
-    public void setInvisible(){
-        setVisible(false);
-    }
 }
