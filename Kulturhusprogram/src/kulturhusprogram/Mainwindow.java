@@ -3,14 +3,14 @@ package kulturhusprogram;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 
 public class Mainwindow extends JFrame{
     Adminwindow adminwindow = new Adminwindow();
+    //TicketsWindow ticketsWindow = new TicketsWindow();
     
     private JTextField searchField;
     private JTextArea info, cal; //Kalenderen blir til liste senere
-    private JButton cinema, theater, other, all, ticket, admin;
+    private JButton cinema, theater, other, all, ticket, admin, search;
     
     public Mainwindow(){
         super("Kulturhuset");
@@ -58,14 +58,20 @@ public class Mainwindow extends JFrame{
         c.weightx = 0;
         c.gridx = 2;
         c.gridy = 0;
-        c.ipadx = 90;
+        c.ipadx = 40;
         c.anchor = GridBagConstraints.CENTER;
         c.fill = GridBagConstraints.NONE;
         
         searchField = new JTextField(10);
-        searchField.setText("søk");
         
         pane.add(searchField, c);
+       
+        c.ipadx = 40;
+        c.anchor = GridBagConstraints.LINE_END;
+        
+        search = new JButton("Søk");
+        
+        pane.add(search, c);
         
         c.weighty = 1;
         c.weightx = 1;
@@ -83,7 +89,7 @@ public class Mainwindow extends JFrame{
         c.gridx = 2;
         c.anchor = GridBagConstraints.PAGE_START;
         c.gridheight = 1;
-        c.ipadx = 150;
+        c.ipadx = 100;
         c.ipady = 40;
         
         pane.add(new Label("Kalender"), c);
@@ -111,19 +117,26 @@ public class Mainwindow extends JFrame{
         
         pane.add(admin, c);
         
+        ButtonListener actListener = new ButtonListener();
+        
+        admin.addActionListener(actListener);
+        ticket.addActionListener(actListener);
+        cinema.addActionListener(actListener);
+        other.addActionListener(actListener);
+        theater.addActionListener(actListener);
+        all.addActionListener(actListener);
+        
+        searchField.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e){
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    
+                }
+            }
+        });
+        
         setSize(1000,500);
         setVisible(true);
-    }
-    
-    public void setVisible(){
-        setVisible(true);
-    }
-    public void setInvisible(){
-        setVisible(false);
-    }
-    
-    public void showAdminwindow(){
-        adminwindow.setVisible();
     }
     
     /*
@@ -161,11 +174,35 @@ public class Mainwindow extends JFrame{
         
     private class ButtonListener implements ActionListener{
         
+        @Override
         public void actionPerformed(ActionEvent e){
-            if(e.getSource() == admin)
-                showAdminwindow();
+            if(e.getSource() == admin){
+                adminwindow.setVisible(true);
+            }     
             
+            else if(e.getSource() == ticket){
+                //ticketsWindow.setVisible(true);
+            }
             
+            else if(e.getSource() == cinema){
+                
+            }
+            
+            else if(e.getSource() == theater){
+                
+            }
+            
+            else if(e.getSource() == other){
+                
+            }
+            
+            else if(e.getSource() == all){
+                
+            }
+            
+            else if(e.getSource() == search){
+                
+            }
         }
     }
 }
